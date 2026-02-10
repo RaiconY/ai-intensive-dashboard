@@ -1,0 +1,734 @@
+/* ===========================================
+   DRAGON CHASE - Blood Dragon Style
+   =========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap');
+
+:root {
+  /* Core colors */
+  --bg-dark: #0a0a12;
+  --bg-purple: #1a0a2e;
+  --bg-panel: rgba(20, 10, 40, 0.85);
+
+  /* Neon colors */
+  --neon-cyan: #00f0ff;
+  --neon-magenta: #ff00ff;
+  --neon-pink: #ff2a6d;
+  --neon-yellow: #f9f002;
+  --neon-green: #05ffa1;
+
+  /* States */
+  --state-fresh: #05ffa1;
+  --state-stressed: #f9f002;
+  --state-bitten: #ff2a6d;
+  --state-victory: #00f0ff;
+
+  /* Dragon */
+  --dragon-color: #ff2a6d;
+  --dragon-glow: 0 0 20px #ff2a6d, 0 0 40px #ff2a6d, 0 0 60px #ff0044;
+
+  /* Text */
+  --text-primary: #e0e0ff;
+  --text-dim: #6a6a8a;
+
+  /* Fonts */
+  --font-display: 'Orbitron', sans-serif;
+  --font-mono: 'Share Tech Mono', monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg-dark);
+  background-image:
+    linear-gradient(180deg, var(--bg-purple) 0%, var(--bg-dark) 100%),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 240, 255, 0.03) 2px,
+      rgba(0, 240, 255, 0.03) 4px
+    );
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Scanlines overlay */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.15) 2px,
+    rgba(0, 0, 0, 0.15) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ===========================================
+   TYPOGRAPHY
+   =========================================== */
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--neon-cyan);
+  text-shadow:
+    0 0 10px var(--neon-cyan),
+    0 0 20px var(--neon-cyan),
+    0 0 40px var(--neon-cyan);
+}
+
+h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--neon-magenta);
+  text-shadow: 0 0 10px var(--neon-magenta);
+  margin-bottom: 1rem;
+}
+
+/* ===========================================
+   LAYOUT
+   =========================================== */
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+header {
+  text-align: center;
+  padding: 2rem 0;
+  border-bottom: 1px solid rgba(0, 240, 255, 0.3);
+  margin-bottom: 2rem;
+}
+
+header .tagline {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--neon-pink);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-top: 0.5rem;
+  text-shadow: 0 0 10px var(--neon-pink);
+}
+
+header .subtitle {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  margin-top: 0.5rem;
+}
+
+/* ===========================================
+   PROGRESS BAR SECTION
+   =========================================== */
+
+.progress-section {
+  background: var(--bg-panel);
+  border: 1px solid var(--neon-cyan);
+  border-radius: 4px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow:
+    0 0 20px rgba(0, 240, 255, 0.2),
+    inset 0 0 60px rgba(0, 240, 255, 0.05);
+}
+
+.progress-track {
+  position: relative;
+  height: 400px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--neon-cyan);
+  border-radius: 4px;
+  margin: 1rem 0;
+  overflow: visible;
+}
+
+/* Danger zone behind dragon */
+.danger-zone {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(90deg,
+    rgba(255, 42, 109, 0.4) 0%,
+    rgba(255, 42, 109, 0.2) 70%,
+    transparent 100%
+  );
+  z-index: 1;
+  transition: width 1s ease-out;
+}
+
+/* Zone labels */
+.zone-label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  padding: 1rem 0.5rem;
+  z-index: 6;
+}
+
+.zone-label.danger {
+  left: 8px;
+  color: var(--neon-pink);
+  text-shadow: 0 0 10px var(--neon-pink);
+  border-left: 2px solid var(--neon-pink);
+}
+
+
+.zone-label.safe {
+  right: 8px;
+  color: var(--state-fresh);
+  text-shadow: 0 0 10px var(--state-fresh);
+  border-right: 2px solid var(--state-fresh);
+}
+
+/* Safe zone gradient */
+.safe-zone {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  background: linear-gradient(270deg,
+    rgba(5, 255, 161, 0.3) 0%,
+    rgba(5, 255, 161, 0.15) 50%,
+    transparent 100%
+  );
+  z-index: 1;
+}
+
+/* Student lanes */
+.student-lanes {
+  position: absolute;
+  top: 35px;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 5;
+}
+
+.student-lane {
+  position: relative;
+  height: 40px;
+  overflow: visible;
+}
+
+/* Dragon lane */
+.dragon-lane {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 220px;
+  z-index: 2;
+}
+
+/* Week markers */
+.week-markers {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  display: flex;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.week-marker {
+  flex: 1;
+  border-right: 2px solid rgba(0, 240, 255, 0.4);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 8px;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--neon-cyan);
+  text-transform: uppercase;
+  text-shadow: 0 0 10px var(--neon-cyan);
+  background: linear-gradient(0deg, rgba(0, 240, 255, 0.08) 0%, transparent 30%);
+}
+
+.week-marker:last-child {
+  border-right: none;
+}
+
+/* Finish line */
+.finish-line {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background: repeating-linear-gradient(
+    0deg,
+    var(--neon-cyan),
+    var(--neon-cyan) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+  box-shadow: 0 0 10px var(--neon-cyan);
+  z-index: 4;
+}
+
+.finish-flag {
+  position: absolute;
+  right: -15px;
+  top: -25px;
+  font-size: 2rem;
+  z-index: 4;
+}
+
+/* Dragon */
+.dragon {
+  position: absolute;
+  top: 32px;
+  transform: translateX(-10%);
+  z-index: 2;
+  transition: left 1s ease-out;
+}
+
+.dragon img {
+  height: 160px;
+  width: auto;
+  filter: drop-shadow(0 0 10px var(--dragon-color)) drop-shadow(0 0 20px var(--neon-cyan));
+  animation: dragon-pulse 4s infinite;
+}
+
+@keyframes dragon-pulse {
+  0%, 100% { filter: drop-shadow(0 0 10px var(--dragon-color)) drop-shadow(0 0 20px var(--neon-cyan)); }
+  50% { filter: drop-shadow(0 0 20px var(--dragon-color)) drop-shadow(0 0 30px var(--neon-cyan)) drop-shadow(0 0 40px var(--dragon-color)); }
+}
+
+.dragon.attacking img {
+  animation: dragon-attack 1s infinite;
+}
+
+@keyframes dragon-attack {
+  0%, 100% { filter: drop-shadow(0 0 15px var(--dragon-color)) drop-shadow(0 0 30px #ff0044); }
+  50% { filter: drop-shadow(0 0 25px var(--dragon-color)) drop-shadow(0 0 50px #ff0044) drop-shadow(0 0 70px var(--dragon-color)); }
+}
+
+/* Student avatars on track */
+.student-marker {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  z-index: 5;
+  transition: left 0.5s ease-out;
+}
+
+.student-marker .avatar {
+  width: 57px;
+  height: 57px;
+  position: relative;
+  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-magenta));
+  padding: 3px;
+  clip-path: polygon(
+    0 10px, 10px 0, calc(100% - 10px) 0, 100% 10px,
+    100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px)
+  );
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.6);
+  flex-shrink: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.student-marker .avatar:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.9), 0 0 50px rgba(255, 0, 255, 0.5);
+}
+
+.student-marker .avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  clip-path: polygon(
+    0 8px, 8px 0, calc(100% - 8px) 0, 100% 8px,
+    100% calc(100% - 8px), calc(100% - 8px) 100%, 8px 100%, 0 calc(100% - 8px)
+  );
+}
+
+.student-marker .name {
+  font-size: 0.7rem;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+/* Avatar states */
+.student-marker.state-fresh .avatar {
+  background: linear-gradient(135deg, var(--state-fresh), var(--neon-cyan));
+  box-shadow: 0 0 15px var(--state-fresh), 0 0 30px var(--state-fresh);
+}
+
+.student-marker.state-stressed .avatar {
+  background: linear-gradient(135deg, #ff8c00, #ff4500);
+  box-shadow: 0 0 15px #ff8c00, 0 0 30px #ff4500;
+  animation: stressed-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes stressed-pulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 15px #ff8c00, 0 0 30px #ff4500; }
+  50% { transform: scale(1.08); box-shadow: 0 0 25px #ff8c00, 0 0 45px #ff4500; }
+}
+
+.student-marker.state-bitten .avatar {
+  background: linear-gradient(135deg, var(--state-bitten), #ff0044);
+  box-shadow: 0 0 15px var(--state-bitten), 0 0 30px var(--state-bitten);
+}
+
+.student-marker.state-victory .avatar {
+  background: linear-gradient(135deg, var(--state-victory), var(--neon-magenta));
+  box-shadow: 0 0 20px var(--state-victory), 0 0 40px var(--state-victory);
+}
+
+/* Leader (1st place) */
+.student-marker.leader .avatar {
+  background: linear-gradient(135deg, #ffd700, #ff8c00, #ffd700);
+  box-shadow: 0 0 20px #ffd700, 0 0 40px #ff8c00, 0 0 60px #ffd700;
+  animation: leader-glow 1.5s ease-in-out infinite;
+}
+
+@keyframes leader-glow {
+  0%, 100% { box-shadow: 0 0 20px #ffd700, 0 0 40px #ff8c00; }
+  50% { box-shadow: 0 0 30px #ffd700, 0 0 50px #ff8c00, 0 0 70px #ffd700; }
+}
+
+.student-marker .crown {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.2rem;
+  filter: drop-shadow(0 0 5px #ffd700);
+  animation: crown-bounce 2s ease-in-out infinite;
+  z-index: 10;
+}
+
+@keyframes crown-bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-4px); }
+}
+
+/* Panic emoji for students in danger */
+.student-marker .panic {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.2rem;
+  filter: drop-shadow(0 0 5px #ff4500);
+  animation: panic-shake 1s ease-in-out infinite;
+  z-index: 10;
+}
+
+@keyframes panic-shake {
+  0%, 100% { transform: translateX(-50%) rotate(0deg); }
+  25% { transform: translateX(-50%) rotate(-10deg); }
+  75% { transform: translateX(-50%) rotate(10deg); }
+}
+
+/* Progress legend */
+.progress-legend {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+  font-size: 0.75rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.legend-dot.fresh { background: var(--state-fresh); box-shadow: 0 0 8px var(--state-fresh); }
+.legend-dot.stressed { background: var(--state-stressed); box-shadow: 0 0 8px var(--state-stressed); }
+.legend-dot.bitten { background: var(--state-bitten); box-shadow: 0 0 8px var(--state-bitten); }
+
+/* ===========================================
+   CHECKINS TABLE
+   =========================================== */
+
+.checkins-section {
+  background: var(--bg-panel);
+  border: 1px solid var(--neon-magenta);
+  border-radius: 4px;
+  padding: 2rem;
+  box-shadow:
+    0 0 20px rgba(255, 0, 255, 0.2),
+    inset 0 0 60px rgba(255, 0, 255, 0.05);
+}
+
+.checkins-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.checkins-table th,
+.checkins-table td {
+  padding: 0.75rem 1rem;
+  text-align: center;
+  border: 1px solid rgba(255, 0, 255, 0.2);
+}
+
+.checkins-table th {
+  background: rgba(255, 0, 255, 0.1);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: var(--neon-magenta);
+}
+
+.checkins-table th.task-col {
+  text-align: left;
+  width: 200px;
+}
+
+.checkins-table th.student-col {
+  min-width: 80px;
+}
+
+.checkins-table tr.week-header td {
+  background: rgba(0, 240, 255, 0.1);
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--neon-cyan);
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  text-align: left;
+  padding: 1rem;
+}
+
+.checkins-table tr:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.checkins-table td.task-name {
+  text-align: left;
+  color: var(--text-primary);
+}
+
+/* Check marks */
+.check {
+  font-size: 1.2rem;
+}
+
+.check.done {
+  color: var(--neon-green);
+  text-shadow: 0 0 10px var(--neon-green);
+}
+
+.check.pending {
+  color: var(--text-dim);
+}
+
+/* Totals row */
+.checkins-table tr.totals-row td {
+  background: rgba(0, 240, 255, 0.1);
+  font-family: var(--font-display);
+  font-weight: 700;
+  border-top: 2px solid var(--neon-cyan);
+}
+
+.totals-row .total-score {
+  color: var(--neon-cyan);
+  text-shadow: 0 0 10px var(--neon-cyan);
+}
+
+/* Call section header (boxed) */
+.checkins-table tr.call-header td {
+  background: rgba(255, 0, 255, 0.15);
+  border-left: 3px solid var(--neon-magenta);
+  padding: 0.6rem 1rem;
+}
+
+.checkins-table td.call-title {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--neon-magenta);
+  text-transform: uppercase;
+  text-align: left;
+  text-shadow: 0 0 8px var(--neon-magenta);
+}
+
+/* Call task rows */
+.checkins-table tr.call-task td {
+  background: rgba(255, 0, 255, 0.05);
+}
+
+.checkins-table tr.call-task td.task-name {
+  padding-left: 1.5rem;
+}
+
+/* Homework section header */
+.checkins-table tr.homework-header td {
+  padding: 0.8rem 1rem 0.4rem 1rem;
+  border-bottom: none;
+}
+
+.checkins-table td.homework-title {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  text-align: left;
+  letter-spacing: 0.05em;
+}
+
+/* Homework task rows (indented) */
+.checkins-table tr.homework-task td.task-name {
+  padding-left: 2rem;
+  color: var(--text-primary);
+}
+
+.checkins-table tr.homework-task td.task-name.indented::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: var(--text-dim);
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+/* ===========================================
+   ADMIN STYLES
+   =========================================== */
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.admin-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--neon-cyan);
+  background: transparent;
+  color: var(--neon-cyan);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: var(--neon-cyan);
+  color: var(--bg-dark);
+  box-shadow: 0 0 20px var(--neon-cyan);
+}
+
+.btn.btn-primary {
+  border-color: var(--neon-magenta);
+  color: var(--neon-magenta);
+}
+
+.btn.btn-primary:hover {
+  background: var(--neon-magenta);
+  color: var(--bg-dark);
+  box-shadow: 0 0 20px var(--neon-magenta);
+}
+
+/* Clickable cells in admin */
+.checkins-table td.clickable {
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.checkins-table td.clickable:hover {
+  background: rgba(255, 0, 255, 0.2);
+}
+
+/* ===========================================
+   RESPONSIVE
+   =========================================== */
+
+/* Mobile block message */
+.mobile-block {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-block {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--bg-dark);
+    background-image: linear-gradient(180deg, var(--bg-purple) 0%, var(--bg-dark) 100%);
+    z-index: 99999;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .mobile-block span {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--neon-cyan);
+    text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    line-height: 1.4;
+  }
+
+  .container {
+    display: none;
+  }
+}

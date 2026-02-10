@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ADMIN // DRAGON CHASE</title>
+  <link rel="stylesheet" href="./css/blood-dragon.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>">
+  <style>
+    .notification {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--neon-cyan);
+      color: var(--bg-dark);
+      padding: 1rem 2rem;
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      border-radius: 4px;
+      box-shadow: 0 0 30px var(--neon-cyan);
+      z-index: 1000;
+      animation: slide-up 0.3s ease;
+    }
+
+    @keyframes slide-up {
+      from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+    }
+
+    .admin-note {
+      background: rgba(255, 42, 109, 0.1);
+      border: 1px solid var(--neon-pink);
+      border-radius: 4px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      font-size: 0.85rem;
+      color: var(--neon-pink);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>⚙️ ADMIN PANEL</h1>
+      <p class="subtitle">
+        <span id="cohort-name">Загрузка...</span> //
+        <span id="cohort-dates"></span>
+      </p>
+    </header>
+
+    <section class="checkins-section">
+      <div class="admin-header">
+        <h2>// УПРАВЛЕНИЕ ЧЕКИНАМИ</h2>
+        <div class="admin-actions">
+          <a href="./index.html" class="btn">👁 ДАШБОРД</a>
+          <button class="btn" id="save-btn" onclick="saveData()">💾 СОХРАНИТЬ</button>
+        </div>
+      </div>
+
+      <div class="admin-note">
+        Кликайте по ячейкам чтобы отмечать/снимать чекины.
+        После изменений нажмите «Сохранить» — скачается JSON, который нужно закоммитить в репо.
+      </div>
+
+      <table class="checkins-table" id="checkins-table">
+        <!-- Rendered by JS -->
+      </table>
+    </section>
+  </div>
+
+  <script src="./js/admin.js"></script>
+</body>
+</html>
