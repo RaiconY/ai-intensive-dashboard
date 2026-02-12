@@ -12,6 +12,9 @@ const AVATAR_PATH = './assets/avatars/';
 const DRAGON_EXPONENT = 1.3;
 const DRAGON_MAX = 90; // dragon reaches 90%, not 100% — rescue zone
 
+// Bonus points for all students (hotfix)
+const BONUS_POINTS = 10;
+
 let cohortData = null;
 
 /**
@@ -53,16 +56,17 @@ function getAllTasks() {
 function getStudentPoints(studentId) {
   const checkins = cohortData.checkins[studentId] || [];
   const allTasks = getAllTasks();
-  return allTasks
+  const taskPoints = allTasks
     .filter(task => checkins.includes(task.id))
     .reduce((sum, task) => sum + task.points, 0);
+  return taskPoints + BONUS_POINTS;
 }
 
 /**
  * Get max possible points
  */
 function getMaxPoints() {
-  return getAllTasks().reduce((sum, task) => sum + task.points, 0);
+  return getAllTasks().reduce((sum, task) => sum + task.points, 0) + BONUS_POINTS;
 }
 
 /**
