@@ -15,8 +15,8 @@ const DRAGON_MAX = 90; // dragon reaches 90%, not 100% — rescue zone
 // Dragon sprite animation (asymmetric: base 3s, laser 1s)
 const DRAGON_SPRITE_BASE = './assets/Blood Dragon Sprite Base.png';
 const DRAGON_SPRITE_LASER = './assets/Blood Dragon Sprite Attack.png';
-const DRAGON_BASE_MS = 3000;
-const DRAGON_LASER_MS = 1000;
+const DRAGON_BASE_MS = 4000;
+const DRAGON_LASER_MS = 2000;
 
 // Bonus points for all students (hotfix)
 const BONUS_POINTS = 10;
