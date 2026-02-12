@@ -22,7 +22,7 @@
           "type": "call",
           "id": "call-1",
           "title": "СОЗВОН #1",
-          "date": "6 янв",
+          "date": "10 фев",
           "tasks": [
             { "id": "call-1-present", "title": "Присутствие", "points": 1 }
           ]
@@ -42,7 +42,7 @@
           "type": "call",
           "id": "call-2",
           "title": "СОЗВОН #2",
-          "date": "10 янв",
+          "date": "13 фев",
           "tasks": [
             { "id": "call-2-present", "title": "Присутствие", "points": 1 }
           ]
@@ -68,7 +68,7 @@
           "type": "call",
           "id": "call-3",
           "title": "СОЗВОН #3",
-          "date": "13 янв",
+          "date": "17 фев",
           "tasks": [
             { "id": "call-3-present", "title": "Присутствие", "points": 1 }
           ]
@@ -87,11 +87,19 @@
         {
           "type": "call",
           "id": "call-4",
-          "title": "СОЗВОН #4 — ДЕМО-ДЕНЬ",
-          "date": "17 янв",
+          "title": "СОЗВОН #4",
+          "date": "20 фев",
           "tasks": [
-            { "id": "call-4-present", "title": "Присутствие", "points": 1 },
-            { "id": "demo-shown", "title": "Демо показано", "points": 5 }
+            { "id": "call-4-present", "title": "Присутствие", "points": 1 }
+          ]
+        },
+        {
+          "type": "homework",
+          "after": "call-4",
+          "title": "ДОМАШКА ПОСЛЕ СОЗВОНА #4",
+          "tasks": [
+            { "id": "skill-written", "title": "Skill: хотя бы 1 написан", "points": 3 },
+            { "id": "first-deploy", "title": "Первый деплой на домен", "points": 3 }
           ]
         }
       ]
@@ -101,13 +109,30 @@
       "title": "ФИНИШ",
       "sections": [
         {
-          "type": "homework",
-          "after": "call-4",
-          "title": "ПОСЛЕ ДЕМО-ДНЯ",
+          "type": "call",
+          "id": "call-5",
+          "title": "СОЗВОН #5",
+          "date": "24 фев",
           "tasks": [
-            { "id": "skill-written", "title": "Skill: хотя бы 1 написан", "points": 3 },
-            { "id": "first-deploy", "title": "Первый деплой на домен", "points": 3 },
+            { "id": "call-5-present", "title": "Присутствие", "points": 1 }
+          ]
+        },
+        {
+          "type": "homework",
+          "after": "call-5",
+          "title": "ДОМАШКА ПОСЛЕ СОЗВОНА #5",
+          "tasks": [
             { "id": "mvp-working", "title": "MVP функционирует", "points": 5 }
+          ]
+        },
+        {
+          "type": "call",
+          "id": "call-6",
+          "title": "СОЗВОН #6 — ДЕМО-ДЕНЬ",
+          "date": "27 фев",
+          "tasks": [
+            { "id": "call-6-present", "title": "Присутствие", "points": 1 },
+            { "id": "demo-shown", "title": "Демо показано", "points": 5 }
           ]
         },
         {
