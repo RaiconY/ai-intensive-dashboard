@@ -3,15 +3,15 @@
   "startDate": "2026-02-10",
   "endDate": "2026-02-27",
   "students": [
-    { "id": "dima", "name": "Дима", "avatar": "rex.jpeg" },
-    { "id": "sonya", "name": "Софья", "avatar": "darling.jpeg" },
-    { "id": "yara", "name": "Яра", "avatar": "spider.jpeg" },
-    { "id": "sergey-t", "name": "Сергей Т.", "avatar": "sloan.jpeg" },
-    { "id": "sasha", "name": "Саша", "avatar": "darling.jpeg" },
-    { "id": "igor", "name": "Игорь", "avatar": "rex.jpeg" },
-    { "id": "sergey-k", "name": "Сергей К.", "avatar": "spider.jpeg" },
-    { "id": "kirill", "name": "Кирилл", "avatar": "sloan.jpeg" },
-    { "id": "ilya", "name": "Илья", "avatar": "rex.jpeg" }
+    { "id": "dima", "name": "Дима", "avatar": "Дима.png" },
+    { "id": "sonya", "name": "Софья", "avatar": "Соник.png" },
+    { "id": "yara", "name": "Яра", "avatar": "Яра.png" },
+    { "id": "sergey-t", "name": "Сергей Т.", "avatar": "Сергей Тихомиров.png" },
+    { "id": "sasha", "name": "Саша", "avatar": "Саша.png" },
+    { "id": "igor", "name": "Игорь", "avatar": "Игорь.png" },
+    { "id": "sergey-k", "name": "Сергей К.", "avatar": "Сергей К.png" },
+    { "id": "kirill", "name": "Кирилл", "avatar": "Кирилл.png" },
+    { "id": "ilya", "name": "Илья", "avatar": "Я (Илья).png" }
   ],
   "weeks": [
     {
