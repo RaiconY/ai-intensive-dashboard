@@ -8,6 +8,10 @@ const FALLBACK_URL = './data/cohort-1.json';
 // Avatar path prefix
 const AVATAR_PATH = './assets/avatars/';
 
+// Dragon mechanics
+const DRAGON_EXPONENT = 1.3;
+const DRAGON_MAX = 90; // dragon reaches 90%, not 100% — rescue zone
+
 let cohortData = null;
 
 /**
@@ -62,11 +66,16 @@ function getMaxPoints() {
 }
 
 /**
- * Calculate dragon position (0-100%)
+ * Calculate dragon position (0–DRAGON_MAX%) with accelerating pace
  */
 function getDragonPosition() {
-  // Fixed position for demo
-  return 20;
+  const now = new Date();
+  const start = new Date(cohortData.startDate + 'T00:00:00');
+  const end = new Date(cohortData.endDate + 'T23:59:59');
+  if (now <= start) return 0;
+  if (now >= end) return DRAGON_MAX;
+  const elapsed = (now - start) / (end - start); // 0..1
+  return Math.pow(elapsed, DRAGON_EXPONENT) * DRAGON_MAX;
 }
 
 /**
@@ -79,17 +88,19 @@ function getStudentPosition(studentId) {
 }
 
 /**
- * Get student state based on dragon proximity
+ * Get student state based on ratio to dragon position
  */
 function getStudentState(studentId) {
   const studentPos = getStudentPosition(studentId);
   const dragonPos = getDragonPosition();
-  const diff = studentPos - dragonPos;
 
   if (studentPos >= 100) return 'victory';
-  if (diff < -5) return 'bitten';
-  if (diff < 10) return 'stressed';
-  return 'fresh';
+  if (dragonPos < 5) return 'fresh'; // course just started
+
+  const ratio = studentPos / dragonPos;
+  if (ratio >= 0.9) return 'fresh';    // 90%+ of dragon
+  if (ratio >= 0.6) return 'stressed'; // 60-89% of dragon
+  return 'bitten';                      // < 60% of dragon
 }
 
 /**
