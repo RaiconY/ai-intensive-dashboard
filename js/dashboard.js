@@ -294,5 +294,132 @@ function renderDashboard() {
   renderCheckinsTable();
 }
 
+// ===========================================
+// MUSIC PLAYER
+// ===========================================
+
+const MUSIC_BASE_URL = 'https://archive.org/download/far_cry_blood_dragon_ost/';
+
+const MUSIC_PLAYLIST = [
+  { file: '02. Blood Dragon Theme.mp3', title: 'Blood Dragon Theme' },
+  { file: '01. Rex Colt.mp3', title: 'Rex Colt' },
+  { file: '07. Power Core.mp3', title: 'Power Core' },
+  { file: '04. Warzone.mp3', title: 'Warzone' },
+  { file: '10. Sloan\'s Assault.mp3', title: 'Sloan\'s Assault' },
+  { file: '12. Combat I.mp3', title: 'Combat I' },
+  { file: '13. Combat II.mp3', title: 'Combat II' },
+  { file: '14. Combat III.mp3', title: 'Combat III' },
+  { file: '16. Omega Force.mp3', title: 'Omega Force' },
+  { file: '24. Resurrection.mp3', title: 'Resurrection' },
+];
+
+let musicCurrentIndex = 0;
+let musicIsPlaying = false;
+
+function initMusicPlayer() {
+  const audio = document.getElementById('music-audio');
+  const toggleBtn = document.getElementById('music-toggle');
+  const prevBtn = document.getElementById('music-prev');
+  const nextBtn = document.getElementById('music-next');
+  const trackName = document.getElementById('music-track-name');
+  const volumeSlider = document.getElementById('music-volume');
+
+  if (!audio || !toggleBtn) return;
+
+  // Restore saved state
+  const savedVolume = localStorage.getItem('music-volume');
+  const savedTrack = localStorage.getItem('music-track');
+  if (savedVolume !== null) {
+    volumeSlider.value = savedVolume;
+    audio.volume = savedVolume / 100;
+  } else {
+    audio.volume = 0.3;
+  }
+  if (savedTrack !== null) {
+    musicCurrentIndex = Math.min(parseInt(savedTrack, 10), MUSIC_PLAYLIST.length - 1);
+  }
+
+  updateTrackDisplay();
+
+  // Autoplay on page load
+  loadTrack(musicCurrentIndex);
+  audio.play().then(() => {
+    musicIsPlaying = true;
+    toggleBtn.textContent = '⏸';
+    toggleBtn.classList.add('playing');
+  }).catch(() => {
+    // Browser blocked autoplay — wait for first user click anywhere
+    document.addEventListener('click', function autoplayOnClick() {
+      if (!musicIsPlaying) {
+        audio.play().then(() => {
+          musicIsPlaying = true;
+          toggleBtn.textContent = '⏸';
+          toggleBtn.classList.add('playing');
+        });
+      }
+      document.removeEventListener('click', autoplayOnClick);
+    }, { once: true });
+  });
+
+  toggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (musicIsPlaying) {
+      audio.pause();
+      musicIsPlaying = false;
+      toggleBtn.textContent = '▶';
+      toggleBtn.classList.remove('playing');
+    } else {
+      if (!audio.src || audio.src === window.location.href) {
+        loadTrack(musicCurrentIndex);
+      }
+      audio.play();
+      musicIsPlaying = true;
+      toggleBtn.textContent = '⏸';
+      toggleBtn.classList.add('playing');
+    }
+  });
+
+  nextBtn.addEventListener('click', () => {
+    musicCurrentIndex = (musicCurrentIndex + 1) % MUSIC_PLAYLIST.length;
+    loadTrack(musicCurrentIndex);
+    if (musicIsPlaying) audio.play();
+  });
+
+  prevBtn.addEventListener('click', () => {
+    musicCurrentIndex = (musicCurrentIndex - 1 + MUSIC_PLAYLIST.length) % MUSIC_PLAYLIST.length;
+    loadTrack(musicCurrentIndex);
+    if (musicIsPlaying) audio.play();
+  });
+
+  volumeSlider.addEventListener('input', () => {
+    audio.volume = volumeSlider.value / 100;
+    localStorage.setItem('music-volume', volumeSlider.value);
+  });
+
+  audio.addEventListener('ended', () => {
+    musicCurrentIndex = (musicCurrentIndex + 1) % MUSIC_PLAYLIST.length;
+    loadTrack(musicCurrentIndex);
+    audio.play();
+  });
+}
+
+function loadTrack(index) {
+  const audio = document.getElementById('music-audio');
+  const track = MUSIC_PLAYLIST[index];
+  audio.src = MUSIC_BASE_URL + encodeURIComponent(track.file);
+  localStorage.setItem('music-track', index);
+  updateTrackDisplay();
+}
+
+function updateTrackDisplay() {
+  const trackName = document.getElementById('music-track-name');
+  if (trackName) {
+    trackName.textContent = MUSIC_PLAYLIST[musicCurrentIndex].title;
+  }
+}
+
 // Initialize
-document.addEventListener('DOMContentLoaded', loadData);
+document.addEventListener('DOMContentLoaded', () => {
+  loadData();
+  initMusicPlayer();
+});

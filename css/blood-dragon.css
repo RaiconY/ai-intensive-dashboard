@@ -117,6 +117,7 @@ h2 {
 }
 
 header {
+  position: relative;
   text-align: center;
   padding: 2rem 0;
   border-bottom: 1px solid rgba(0, 240, 255, 0.3);
@@ -156,7 +157,6 @@ header .subtitle {
 
 .progress-track {
   position: relative;
-  height: 400px;
   background: rgba(0, 0, 0, 0.5);
   border: 1px solid var(--neon-cyan);
   border-radius: 4px;
@@ -226,10 +226,8 @@ header .subtitle {
 
 /* Student lanes */
 .student-lanes {
-  position: absolute;
-  top: 35px;
-  left: 0;
-  right: 0;
+  position: relative;
+  padding-top: 35px;
   display: flex;
   flex-direction: column;
   z-index: 5;
@@ -237,16 +235,13 @@ header .subtitle {
 
 .student-lane {
   position: relative;
-  height: 40px;
+  height: 52px;
   overflow: visible;
 }
 
 /* Dragon lane */
 .dragon-lane {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  position: relative;
   height: 220px;
   z-index: 2;
 }
@@ -690,6 +685,107 @@ header .subtitle {
 
 .checkins-table td.clickable:hover {
   background: rgba(255, 0, 255, 0.2);
+}
+
+/* ===========================================
+   MUSIC PLAYER
+   =========================================== */
+
+.music-player {
+  position: absolute;
+  top: 1rem;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  z-index: 100;
+}
+
+.music-btn {
+  background: transparent;
+  border: 1px solid var(--neon-cyan);
+  color: var(--neon-cyan);
+  font-size: 0.85rem;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  padding: 0;
+  line-height: 1;
+}
+
+.music-btn:hover {
+  background: rgba(0, 240, 255, 0.15);
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
+}
+
+.music-btn-main {
+  width: 36px;
+  height: 36px;
+  border: 2px solid var(--neon-cyan);
+  font-size: 1rem;
+  border-radius: 50%;
+}
+
+.music-btn-main.playing {
+  border-color: var(--neon-magenta);
+  color: var(--neon-magenta);
+  box-shadow: 0 0 10px var(--neon-magenta), 0 0 20px rgba(255, 0, 255, 0.3);
+  animation: music-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes music-pulse {
+  0%, 100% { box-shadow: 0 0 10px var(--neon-magenta), 0 0 20px rgba(255, 0, 255, 0.3); }
+  50% { box-shadow: 0 0 15px var(--neon-magenta), 0 0 30px rgba(255, 0, 255, 0.5); }
+}
+
+.music-track-name {
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  color: var(--neon-cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  max-width: 140px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.5);
+}
+
+/* Volume slider */
+.music-volume {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 60px;
+  height: 4px;
+  background: rgba(255, 0, 255, 0.3);
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+.music-volume::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--neon-magenta);
+  box-shadow: 0 0 6px var(--neon-magenta);
+  cursor: pointer;
+}
+
+.music-volume::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--neon-magenta);
+  box-shadow: 0 0 6px var(--neon-magenta);
+  border: none;
+  cursor: pointer;
 }
 
 /* ===========================================

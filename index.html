@@ -13,6 +13,14 @@
   </div>
   <div class="container">
     <header>
+      <div class="music-player" id="music-player">
+        <button class="music-btn" id="music-prev" title="Предыдущий трек">⏮</button>
+        <button class="music-btn music-btn-main" id="music-toggle" title="Play / Pause">▶</button>
+        <button class="music-btn" id="music-next" title="Следующий трек">⏭</button>
+        <span class="music-track-name" id="music-track-name">BLOOD DRAGON OST</span>
+        <input type="range" class="music-volume" id="music-volume" min="0" max="100" value="30">
+      </div>
+      <audio id="music-audio" preload="auto"></audio>
       <h1>AI INTENSIVE</h1>
       <p class="tagline">Beware of Blood Dragon</p>
       <p class="subtitle">
