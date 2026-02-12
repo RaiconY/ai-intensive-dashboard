@@ -9,8 +9,14 @@ const FALLBACK_URL = './data/cohort-1.json';
 const AVATAR_PATH = './assets/avatars/';
 
 // Dragon mechanics
-const DRAGON_EXPONENT = 1.3;
+const DRAGON_EXPONENT = 2.5;
 const DRAGON_MAX = 90; // dragon reaches 90%, not 100% — rescue zone
+
+// Dragon sprite animation (asymmetric: base 3s, laser 1s)
+const DRAGON_SPRITE_BASE = './assets/Blood Dragon Sprite Base.png';
+const DRAGON_SPRITE_LASER = './assets/Blood Dragon Sprite Attack.png';
+const DRAGON_BASE_MS = 3000;
+const DRAGON_LASER_MS = 1000;
 
 // Bonus points for all students (hotfix)
 const BONUS_POINTS = 10;
@@ -172,22 +178,34 @@ function renderProgressBar() {
   lanesHtml += '</div>';
   track.innerHTML += lanesHtml;
 
-  // Dragon - attack mode if anyone is stressed or bitten
-  const anyoneInDanger = cohortData.students.some(s => {
-    const state = getStudentState(s.id);
-    return state === 'stressed' || state === 'bitten';
-  });
-  const dragonSprite = anyoneInDanger
-    ? './assets/Blood Dragon Sprite Attack.png'
-    : './assets/Blood Dragon Sprite Base.png';
-
+  // Dragon with 2-frame sprite animation
   track.innerHTML += `
     <div class="dragon-lane">
-      <div class="dragon ${anyoneInDanger ? 'attacking' : ''}" style="left: ${dragonPos}%">
-        <img src="${dragonSprite}" alt="Dragon">
+      <div class="dragon" style="left: ${dragonPos}%">
+        <img id="dragon-sprite" src="${DRAGON_SPRITE_BASE}" alt="Dragon">
       </div>
     </div>
   `;
+
+  startDragonAnimation();
+}
+
+let dragonAnimTimer = null;
+function startDragonAnimation() {
+  if (dragonAnimTimer) clearTimeout(dragonAnimTimer);
+  function showBase() {
+    const img = document.getElementById('dragon-sprite');
+    if (!img) return;
+    img.src = DRAGON_SPRITE_BASE;
+    dragonAnimTimer = setTimeout(showLaser, DRAGON_BASE_MS);
+  }
+  function showLaser() {
+    const img = document.getElementById('dragon-sprite');
+    if (!img) return;
+    img.src = DRAGON_SPRITE_LASER;
+    dragonAnimTimer = setTimeout(showBase, DRAGON_LASER_MS);
+  }
+  dragonAnimTimer = setTimeout(showLaser, DRAGON_BASE_MS);
 }
 
 /**

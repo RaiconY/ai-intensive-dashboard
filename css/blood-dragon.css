@@ -317,21 +317,13 @@ header .subtitle {
   height: 160px;
   width: auto;
   filter: drop-shadow(0 0 10px var(--dragon-color)) drop-shadow(0 0 20px var(--neon-cyan));
-  animation: dragon-pulse 4s infinite;
+  animation: dragon-pulse 2s infinite;
+  transition: src 0.1s;
 }
 
 @keyframes dragon-pulse {
   0%, 100% { filter: drop-shadow(0 0 10px var(--dragon-color)) drop-shadow(0 0 20px var(--neon-cyan)); }
-  50% { filter: drop-shadow(0 0 20px var(--dragon-color)) drop-shadow(0 0 30px var(--neon-cyan)) drop-shadow(0 0 40px var(--dragon-color)); }
-}
-
-.dragon.attacking img {
-  animation: dragon-attack 1s infinite;
-}
-
-@keyframes dragon-attack {
-  0%, 100% { filter: drop-shadow(0 0 15px var(--dragon-color)) drop-shadow(0 0 30px #ff0044); }
-  50% { filter: drop-shadow(0 0 25px var(--dragon-color)) drop-shadow(0 0 50px #ff0044) drop-shadow(0 0 70px var(--dragon-color)); }
+  50% { filter: drop-shadow(0 0 25px var(--dragon-color)) drop-shadow(0 0 40px #ff0044) drop-shadow(0 0 60px var(--dragon-color)); }
 }
 
 /* Student avatars on track */
