@@ -55,7 +55,7 @@
             { "id": "terminal-basics", "title": "Терминал: базовые команды", "points": 1 },
             { "id": "claude-md", "title": "CLAUDE.md создан", "points": 2 },
             { "id": "prd-md", "title": "PRD.md / описание продукта", "points": 2 },
-            { "id": "folder-structure", "title": "Структура папок проекта", "points": 1 }
+            { "id": "folder-structure", "title": "Есть понятная структура папок", "points": 1 }
           ]
         }
       ]
