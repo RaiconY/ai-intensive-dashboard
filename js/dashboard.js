@@ -149,12 +149,17 @@ function renderProgressBar() {
     <div class="finish-line"></div>
   `;
 
+  // Sort students by points (descending) — leader on top, slowest near dragon
+  const sortedStudents = [...cohortData.students].sort((a, b) =>
+    getStudentPoints(b.id) - getStudentPoints(a.id)
+  );
+
   // Find leader (most points)
-  const leaderPoints = Math.max(...cohortData.students.map(s => getStudentPoints(s.id)));
+  const leaderPoints = Math.max(...sortedStudents.map(s => getStudentPoints(s.id)));
 
   // Student lanes
   let lanesHtml = '<div class="student-lanes">';
-  cohortData.students.forEach((student) => {
+  sortedStudents.forEach((student) => {
     const pos = getStudentPosition(student.id);
     const state = getStudentState(student.id);
     const avatarSrc = AVATAR_PATH + student.avatar;

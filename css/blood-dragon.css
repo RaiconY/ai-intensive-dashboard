@@ -503,8 +503,12 @@ header .subtitle {
   border: 1px solid rgba(255, 0, 255, 0.2);
 }
 
-.checkins-table th {
-  background: rgba(255, 0, 255, 0.1);
+.checkins-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg-dark);
+  border-bottom: 2px solid var(--neon-magenta);
   font-family: var(--font-display);
   font-size: 0.8rem;
   text-transform: uppercase;
