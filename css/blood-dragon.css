@@ -406,6 +406,32 @@ header .subtitle {
   box-shadow: 0 0 20px var(--state-victory), 0 0 40px var(--state-victory);
 }
 
+/* Dropped (выбыл) */
+.student-marker.state-dropped .avatar {
+  background: linear-gradient(135deg, #111, #222);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.student-marker.state-dropped .avatar img {
+  filter: grayscale(1) brightness(0.4);
+}
+
+.student-marker.state-dropped .name {
+  color: var(--text-dim);
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.student-marker .skull {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.2rem;
+  filter: drop-shadow(0 0 5px #000);
+  z-index: 10;
+}
+
 /* Leader (1st place) */
 .student-marker.leader .avatar {
   background: linear-gradient(135deg, #ffd700, #ff8c00, #ffd700);
@@ -522,6 +548,12 @@ header .subtitle {
 
 .checkins-table th.student-col {
   min-width: 80px;
+}
+
+.checkins-table th.student-col.dropped {
+  color: var(--text-dim);
+  opacity: 0.5;
+  text-decoration: line-through;
 }
 
 .checkins-table tr.week-header td {

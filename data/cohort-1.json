@@ -6,7 +6,7 @@
     { "id": "dima", "name": "Дима", "avatar": "Дима.webp" },
     { "id": "sonya", "name": "Софья", "avatar": "Соник.webp" },
     { "id": "yara", "name": "Яра", "avatar": "Яра.webp" },
-    { "id": "sergey-t", "name": "Сергей Т.", "avatar": "Сергей Тихомиров.webp" },
+    { "id": "sergey-t", "name": "Сергей Т.", "avatar": "Сергей Тихомиров.webp", "dropped": true },
     { "id": "sasha", "name": "Саша", "avatar": "Саша.webp" },
     { "id": "igor", "name": "Игорь", "avatar": "Игорь.webp" },
     { "id": "sergey-k", "name": "Сергей К.", "avatar": "Сергей К.webp" },
@@ -78,10 +78,11 @@
           "after": "call-3",
           "title": "ДОМАШКА ПОСЛЕ СОЗВОНА #3",
           "tasks": [
-            { "id": "local-run", "title": "Локальный запуск проекта", "points": 2 },
             { "id": "git-init", "title": "Git инициализирован", "points": 1 },
             { "id": "github-repo", "title": "Проект залит на GitHub", "points": 2 },
-            { "id": "mcp-connected", "title": "MCP: хотя бы 1 подключён", "points": 2 }
+            { "id": "remote-commit", "title": "Коммит с телефона или удалённо", "points": 2 },
+            { "id": "git-pull", "title": "Git Pull изменений локально", "points": 1 },
+            { "id": "codex-cli", "title": "★ Codex CLI установлен", "points": 2 }
           ]
         },
         {
@@ -98,6 +99,7 @@
           "after": "call-4",
           "title": "ДОМАШКА ПОСЛЕ СОЗВОНА #4",
           "tasks": [
+            { "id": "mcp-connected", "title": "MCP: хотя бы 1 подключён", "points": 2 },
             { "id": "skill-written", "title": "Skill: хотя бы 1 написан", "points": 3 },
             { "id": "first-deploy", "title": "Первый деплой на домен", "points": 3 }
           ]

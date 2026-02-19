@@ -101,6 +101,10 @@ function getStudentPosition(studentId) {
  * Get student state based on ratio to dragon position
  */
 function getStudentState(studentId) {
+  // Check if student dropped out
+  const student = cohortData.students.find(s => s.id === studentId);
+  if (student && student.dropped) return 'dropped';
+
   const studentPos = getStudentPosition(studentId);
   const dragonPos = getDragonPosition();
 
@@ -166,15 +170,17 @@ function renderProgressBar() {
     const points = getStudentPoints(student.id);
     const isLeader = points === leaderPoints && points > 0;
 
-    const inDanger = state === 'stressed' || state === 'bitten';
+    const isDropped = state === 'dropped';
+    const inDanger = !isDropped && (state === 'stressed' || state === 'bitten');
     lanesHtml += `
       <div class="student-lane">
-        <div class="student-marker state-${state} ${isLeader ? 'leader' : ''}" style="left: ${pos}%">
+        <div class="student-marker state-${state} ${isLeader && !isDropped ? 'leader' : ''}" style="left: ${pos}%">
           <div class="avatar">
             <img src="${avatarSrc}" alt="${student.name}">
           </div>
-          <div class="name">${student.name}</div>
-          ${isLeader ? '<div class="crown">👑</div>' : ''}
+          ${isDropped ? '' : `<div class="name">${student.name}</div>`}
+          ${isDropped ? '<div class="skull">💀</div>' : ''}
+          ${isLeader && !isDropped ? '<div class="crown">👑</div>' : ''}
           ${inDanger ? '<div class="panic">😱</div>' : ''}
         </div>
       </div>
@@ -227,7 +233,7 @@ function renderCheckinsTable() {
     <thead>
       <tr>
         <th class="task-col"></th>
-        ${cohortData.students.map(s => `<th class="student-col">${s.name}</th>`).join('')}
+        ${cohortData.students.map(s => `<th class="student-col ${s.dropped ? 'dropped' : ''}">${s.dropped ? '💀' : s.name}</th>`).join('')}
       </tr>
     </thead>
     <tbody>
