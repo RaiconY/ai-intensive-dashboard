@@ -9,7 +9,7 @@ const FALLBACK_URL = './data/cohort-1.json';
 const AVATAR_PATH = './assets/avatars/';
 
 // Dragon mechanics
-const DRAGON_EXPONENT = 2.5;
+const DRAGON_EXPONENT = 1.5;
 const DRAGON_MAX = 90; // dragon reaches 90%, not 100% — rescue zone
 
 // Dragon sprite animation (asymmetric: base 3s, laser 1s)
