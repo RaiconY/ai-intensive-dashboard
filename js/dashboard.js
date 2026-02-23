@@ -85,7 +85,7 @@ function getDragonPosition() {
   if (now <= start) return 0;
   if (now >= end) return DRAGON_MAX;
   const elapsed = (now - start) / (end - start); // 0..1
-  return Math.pow(elapsed, DRAGON_EXPONENT) * DRAGON_MAX;
+  return Math.max(0, Math.pow(elapsed, DRAGON_EXPONENT) * DRAGON_MAX - 10);
 }
 
 /**
