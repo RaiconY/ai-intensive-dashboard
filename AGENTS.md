@@ -72,6 +72,7 @@ JSON-файл `data/cohort-1.json` содержит:
 - **Stressed** (оранжевый) — дракон приближается
 - **Bitten** (красный) — дракон догнал
 - **Leader** (золотой) — первое место
+- **Dropped** (чёрный, 💀) — ученик выбыл (`"dropped": true` в данных)
 
 ## Деплой
 
@@ -82,3 +83,17 @@ JSON-файл `data/cohort-1.json` содержит:
 - Site ID: `424adeb3-79c9-472d-a0c8-b81fae93e54d`
 - URL: https://ai-intensive-dashboard.netlify.app
 - Fallback: если API недоступен, дашборд читает локальный `data/cohort-1.json`
+
+## Два источника данных
+
+Дашборд использует **два источника**, и это важно при обновлениях:
+
+1. **Netlify Blobs** (основной) — `/api/data` читает, `/api/save` пишет. Админка работает с ним.
+2. **`data/cohort-1.json`** (fallback) — используется если API недоступен.
+
+**При изменении структуры данных** (задания, ученики, недели) нужно обновить оба:
+1. Отредактировать `data/cohort-1.json`
+2. Задеплоить статику: `netlify deploy --prod --dir=. --site=424adeb3-79c9-472d-a0c8-b81fae93e54d`
+3. Залить данные в Blobs: `curl -X POST "https://ai-intensive-dashboard.netlify.app/api/save" -H "Content-Type: application/json" -d @data/cohort-1.json`
+
+**Чекины** (галочки) обновляются только в Blobs через админку — в локальный JSON их переносить не нужно.

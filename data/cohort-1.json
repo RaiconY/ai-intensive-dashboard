@@ -99,9 +99,11 @@
           "after": "call-4",
           "title": "ДОМАШКА ПОСЛЕ СОЗВОНА #4",
           "tasks": [
-            { "id": "mcp-connected", "title": "MCP: хотя бы 1 подключён", "points": 2 },
-            { "id": "skill-written", "title": "Skill: хотя бы 1 написан", "points": 3 },
-            { "id": "first-deploy", "title": "Первый деплой на домен", "points": 3 }
+            { "id": "hook-created", "title": "Хук: хотя бы 1 создан", "points": 2 },
+            { "id": "skill-written", "title": "Skill: хотя бы 1 написан", "points": 2 },
+            { "id": "subagent-context", "title": "Субагент vs прямой: сравнение /context", "points": 1 },
+            { "id": "custom-command", "title": "Своя команда (напр. /commit)", "points": 2 },
+            { "id": "mcp-connected", "title": "★ MCP подключён", "points": 2 }
           ]
         }
       ]
@@ -124,6 +126,7 @@
           "after": "call-5",
           "title": "ДОМАШКА ПОСЛЕ СОЗВОНА #5",
           "tasks": [
+            { "id": "first-deploy", "title": "Первый деплой на домен", "points": 3 },
             { "id": "mvp-working", "title": "MVP функционирует", "points": 5 }
           ]
         },
