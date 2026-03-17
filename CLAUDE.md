@@ -94,6 +94,29 @@ JSON-файл `data/cohort-1.json` содержит:
 **При изменении структуры данных** (задания, ученики, недели) нужно обновить оба:
 1. Отредактировать `data/cohort-1.json`
 2. Задеплоить статику: `netlify deploy --prod --dir=. --site=424adeb3-79c9-472d-a0c8-b81fae93e54d`
-3. Залить данные в Blobs: `curl -X POST "https://ai-intensive-dashboard.netlify.app/api/save" -H "Content-Type: application/json" -d @data/cohort-1.json`
+3. Залить данные в Blobs (см. ⚠️ ниже)
 
 **Чекины** (галочки) обновляются только в Blobs через админку — в локальный JSON их переносить не нужно.
+
+> ⚠️ **НЕ делай `curl -d @data/cohort-1.json`** напрямую в `/api/save` — локальный JSON содержит пустые чекины и затрёт реальные галочки из админки!
+>
+> Правильный порядок для шага 3:
+> 1. Скачать текущие данные из Blobs: `curl -s https://ai-intensive-dashboard.netlify.app/api/data > /tmp/current.json`
+> 2. Смержить структуру (weeks, students) из локального JSON с чекинами из Blobs
+> 3. Отправить смерженный результат в `/api/save`
+>
+> Пример на Python:
+> ```python
+> import json, urllib.request
+> # Скачать текущие Blobs (с чекинами)
+> blobs = json.loads(urllib.request.urlopen('https://ai-intensive-dashboard.netlify.app/api/data').read())
+> # Прочитать локальный JSON (обновлённая структура)
+> with open('data/cohort-1.json') as f: local = json.load(f)
+> # Мерж: структура из локального, чекины из Blobs
+> local['checkins'] = blobs['checkins']
+> # Отправить
+> req = urllib.request.Request('https://ai-intensive-dashboard.netlify.app/api/save',
+>     data=json.dumps(local, ensure_ascii=False).encode('utf-8'),
+>     headers={'Content-Type': 'application/json'}, method='POST')
+> urllib.request.urlopen(req)
+> ```
