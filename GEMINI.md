@@ -78,8 +78,7 @@ JSON-файл `data/cohort-1.json` содержит:
 
 - Хостинг: Netlify (статика + Functions)
 - Хранилище данных: Netlify Blobs
-- **Автодеплой из GitHub НЕ подключён** — `git push` не триггерит билд
-- Деплой вручную через Netlify MCP (`deploy-site`) или Netlify CLI
+- **Автодеплой из GitHub подключён** — `git push` в `main` триггерит билд автоматически
 - Site ID: `424adeb3-79c9-472d-a0c8-b81fae93e54d`
 - URL: https://ai-intensive-dashboard.netlify.app
 - Fallback: если API недоступен, дашборд читает локальный `data/cohort-1.json`
