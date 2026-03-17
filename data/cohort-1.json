@@ -4,13 +4,13 @@
   "endDate": "2026-04-03",
   "students": [
     { "id": "sergey", "name": "Сергей", "avatar": "rex.webp" },
-    { "id": "alexandr", "name": "Александр", "avatar": "darling.webp" },
-    { "id": "irina", "name": "Ирина", "avatar": "sloan.webp" },
-    { "id": "victoria", "name": "Виктория", "avatar": "Игорь.webp" },
-    { "id": "evgeniy", "name": "Евгений", "avatar": "Я (Илья).webp" },
-    { "id": "roman", "name": "Роман", "avatar": "Соник.webp" },
-    { "id": "kseniya", "name": "Ксения", "avatar": "rex.webp" },
-    { "id": "margarita", "name": "Маргарита", "avatar": "darling.webp" }
+    { "id": "alexandr", "name": "Александр", "avatar": "sloan.webp" },
+    { "id": "irina", "name": "Ирина", "avatar": "darling.webp" },
+    { "id": "victoria", "name": "Виктория", "avatar": "Соник.webp" },
+    { "id": "evgeniy", "name": "Евгений", "avatar": "Игорь.webp" },
+    { "id": "roman", "name": "Роман", "avatar": "Я (Илья).webp" },
+    { "id": "kseniya", "name": "Ксения", "avatar": "darling.webp" },
+    { "id": "margarita", "name": "Маргарита", "avatar": "Соник.webp" }
   ],
   "weeks": [
     {
