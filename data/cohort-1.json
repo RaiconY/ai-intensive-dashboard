@@ -3,14 +3,14 @@
   "startDate": "2026-03-17",
   "endDate": "2026-04-03",
   "students": [
-    { "id": "sergey", "name": "Сергей", "avatar": "rex.webp" },
-    { "id": "alexandr", "name": "Александр", "avatar": "sloan.webp" },
-    { "id": "irina", "name": "Ирина", "avatar": "darling.webp" },
-    { "id": "victoria", "name": "Виктория", "avatar": "Соник.webp" },
-    { "id": "evgeniy", "name": "Евгений", "avatar": "Игорь.webp" },
-    { "id": "roman", "name": "Роман", "avatar": "Я (Илья).webp" },
-    { "id": "kseniya", "name": "Ксения", "avatar": "darling.webp" },
-    { "id": "margarita", "name": "Маргарита", "avatar": "Соник.webp" }
+    { "id": "sergey", "name": "Сергей", "avatar": "Поток 3/Сергей Шаутин.webp" },
+    { "id": "alexandr", "name": "Александр", "avatar": "Поток 3/Aleksandr.webp" },
+    { "id": "irina", "name": "Ирина", "avatar": "Поток 3/Irina.webp" },
+    { "id": "victoria", "name": "Виктория", "avatar": "Поток 3/Виктория.webp" },
+    { "id": "evgeniy", "name": "Евгений", "avatar": "Поток 3/Евгений.webp" },
+    { "id": "roman", "name": "Роман", "avatar": "Поток 3/Роман.webp" },
+    { "id": "kseniya", "name": "Ксения", "avatar": "Поток 3/Ксюша.webp" },
+    { "id": "margarita", "name": "Маргарита", "avatar": "Поток 3/Маргарита.webp" }
   ],
   "weeks": [
     {
