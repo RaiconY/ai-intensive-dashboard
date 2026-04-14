@@ -213,12 +213,13 @@ header .subtitle {
 /* Gift icon next to Safe Zone label */
 .safe-zone-gift {
   position: absolute;
-  top: 8px;
+  top: 50%;
   right: 38px;
-  width: 44px;
-  height: 44px;
+  width: 72px;
+  height: 72px;
+  transform: translateY(-50%);
   image-rendering: pixelated;
-  filter: drop-shadow(0 0 8px var(--state-fresh)) drop-shadow(0 0 16px var(--state-fresh));
+  filter: drop-shadow(0 0 10px var(--state-fresh)) drop-shadow(0 0 20px var(--state-fresh));
   animation: gift-pulse 2.2s ease-in-out infinite;
   pointer-events: none;
   z-index: 6;
@@ -226,12 +227,12 @@ header .subtitle {
 
 @keyframes gift-pulse {
   0%, 100% {
-    transform: scale(1);
-    filter: drop-shadow(0 0 6px var(--state-fresh)) drop-shadow(0 0 12px var(--state-fresh));
+    transform: translateY(-50%) scale(1);
+    filter: drop-shadow(0 0 8px var(--state-fresh)) drop-shadow(0 0 16px var(--state-fresh));
   }
   50% {
-    transform: scale(1.08);
-    filter: drop-shadow(0 0 12px var(--state-fresh)) drop-shadow(0 0 22px var(--state-fresh));
+    transform: translateY(-50%) scale(1.1);
+    filter: drop-shadow(0 0 16px var(--state-fresh)) drop-shadow(0 0 28px var(--state-fresh));
   }
 }
 
