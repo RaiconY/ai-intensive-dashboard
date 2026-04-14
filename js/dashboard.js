@@ -135,6 +135,7 @@ function renderProgressBar() {
   track.innerHTML += `
     <div class="danger-zone" style="width: ${dangerWidth}%"></div>
     <div class="safe-zone" style="width: ${safeWidth}%"></div>
+    <img class="safe-zone-gift" src="assets/gift_only.png" alt="Приз">
     <div class="zone-label danger">Danger Zone</div>
     <div class="zone-label safe">Safe Zone</div>
   `;
