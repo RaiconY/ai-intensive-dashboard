@@ -3,16 +3,16 @@
   "startDate": "2026-04-14",
   "endDate": "2026-04-30",
   "students": [
-    { "id": "alexey", "name": "Алексей", "avatar": "Поток 4/Алексей.webp" },
-    { "id": "anton1", "name": "Антон Р.", "avatar": "Поток 4/Антон Р.webp" },
-    { "id": "anton2", "name": "Антон К.", "avatar": "Поток 4/Антон К.webp" },
-    { "id": "olya", "name": "Оля", "avatar": "Поток 4/Оля.webp" },
-    { "id": "vladimir", "name": "Владимир", "avatar": "Поток 4/Владимир.webp" },
-    { "id": "yulia", "name": "Юля", "avatar": "Поток 4/Юля.webp" },
-    { "id": "margarita", "name": "Маргарита", "avatar": "Поток 4/Маргарита.webp" },
-    { "id": "anastasia", "name": "Анастасия", "avatar": "Поток 4/Анастасия.webp" },
-    { "id": "dmitry", "name": "Дмитрий", "avatar": "Поток 4/Дмитрий.webp" },
-    { "id": "maxim", "name": "Максим", "avatar": "Поток 4/Максим.webp" }
+    { "id": "alexey", "name": "Алексей", "avatar": "Поток 4/alexey.webp" },
+    { "id": "anton1", "name": "Антон Р.", "avatar": "Поток 4/anton1.webp" },
+    { "id": "anton2", "name": "Антон К.", "avatar": "Поток 4/anton2.webp" },
+    { "id": "olya", "name": "Оля", "avatar": "Поток 4/olya.webp" },
+    { "id": "vladimir", "name": "Владимир", "avatar": "Поток 4/vladimir.webp" },
+    { "id": "yulia", "name": "Юля", "avatar": "Поток 4/yulia.webp" },
+    { "id": "margarita", "name": "Маргарита", "avatar": "Поток 4/margarita.webp" },
+    { "id": "anastasia", "name": "Анастасия", "avatar": "Поток 4/anastasia.webp" },
+    { "id": "dmitry", "name": "Дмитрий", "avatar": "Поток 4/dmitry.webp" },
+    { "id": "maxim", "name": "Максим", "avatar": "Поток 4/maxim.webp" }
   ],
   "weeks": [
     {
