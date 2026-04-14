@@ -98,11 +98,11 @@
           "after": "call-4",
           "title": "ДОМАШКА ПОСЛЕ СОЗВОНА #4",
           "tasks": [
-            { "id": "hook-created", "title": "Хук: хотя бы 1 создан", "points": 2 },
-            { "id": "skill-written", "title": "Skill: хотя бы 1 написан", "points": 2 },
+            { "id": "hook-created", "title": "Хук или статус лайн настроен", "points": 2 },
+            { "id": "skill-written", "title": "Skill: написан под свою задачу", "points": 2 },
             { "id": "subagent-context", "title": "Субагент vs прямой: сравнение /context", "points": 1 },
-            { "id": "custom-command", "title": "Своя команда (напр. /commit)", "points": 2 },
-            { "id": "mcp-connected", "title": "★ MCP подключён", "points": 2 }
+            { "id": "builtin-commands", "title": "Команды /btw, /rename, /resume", "points": 1 },
+            { "id": "custom-subagent", "title": "★ Свой субагент создан", "points": 2 }
           ]
         }
       ]
@@ -149,6 +149,14 @@
           "title": "1-НА-1 КОНСУЛЬТАЦИЯ",
           "tasks": [
             { "id": "consultation-done", "title": "Проведена", "points": 2 }
+          ]
+        },
+        {
+          "type": "homework",
+          "title": "ИСПОЛЬЗОВАНИЕ CLAUDE CODE",
+          "tasks": [
+            { "id": "session-limit", "title": "Скриншот. Лимит 5ч сессии — 100%", "points": 2 },
+            { "id": "weekly-limit", "title": "Скриншот. Недельный лимит — 100%", "points": 3 }
           ]
         }
       ]
