@@ -1,16 +1,18 @@
 {
-  "cohort": "Поток #3",
-  "startDate": "2026-03-17",
-  "endDate": "2026-04-03",
+  "cohort": "Поток #4",
+  "startDate": "2026-04-14",
+  "endDate": "2026-04-30",
   "students": [
-    { "id": "sergey", "name": "Сергей", "avatar": "Поток 3/Сергей Шаутин.webp" },
-    { "id": "alexandr", "name": "Александр", "avatar": "Поток 3/Aleksandr.webp" },
-    { "id": "irina", "name": "Ирина", "avatar": "Поток 3/Irina.webp" },
-    { "id": "victoria", "name": "Виктория", "avatar": "Поток 3/Виктория.webp" },
-    { "id": "evgeniy", "name": "Евгений", "avatar": "Поток 3/Евгений.webp" },
-    { "id": "roman", "name": "Роман", "avatar": "Поток 3/Роман.webp" },
-    { "id": "kseniya", "name": "Ксения", "avatar": "Поток 3/Ксюша.webp" },
-    { "id": "margarita", "name": "Маргарита", "avatar": "Поток 3/Маргарита.webp" }
+    { "id": "alexey", "name": "Алексей", "avatar": "Поток 4/Алексей.webp" },
+    { "id": "anton1", "name": "Антон Р.", "avatar": "Поток 4/Антон Р.webp" },
+    { "id": "anton2", "name": "Антон К.", "avatar": "Поток 4/Антон К.webp" },
+    { "id": "olya", "name": "Оля", "avatar": "Поток 4/Оля.webp" },
+    { "id": "vladimir", "name": "Владимир", "avatar": "Поток 4/Владимир.webp" },
+    { "id": "yulia", "name": "Юля", "avatar": "Поток 4/Юля.webp" },
+    { "id": "margarita", "name": "Маргарита", "avatar": "Поток 4/Маргарита.webp" },
+    { "id": "anastasia", "name": "Анастасия", "avatar": "Поток 4/Анастасия.webp" },
+    { "id": "dmitry", "name": "Дмитрий", "avatar": "Поток 4/Дмитрий.webp" },
+    { "id": "maxim", "name": "Максим", "avatar": "Поток 4/Максим.webp" }
   ],
   "weeks": [
     {
@@ -21,7 +23,7 @@
           "type": "call",
           "id": "call-1",
           "title": "СОЗВОН #1",
-          "date": "17 мар",
+          "date": "14 апр",
           "tasks": [
             { "id": "call-1-present", "title": "Присутствие", "points": 1 }
           ]
@@ -41,7 +43,7 @@
           "type": "call",
           "id": "call-2",
           "title": "СОЗВОН #2",
-          "date": "20 мар",
+          "date": "17 апр",
           "tasks": [
             { "id": "call-2-present", "title": "Присутствие", "points": 1 }
           ]
@@ -67,7 +69,7 @@
           "type": "call",
           "id": "call-3",
           "title": "СОЗВОН #3",
-          "date": "24 мар",
+          "date": "21 апр",
           "tasks": [
             { "id": "call-3-present", "title": "Присутствие", "points": 1 }
           ]
@@ -88,7 +90,7 @@
           "type": "call",
           "id": "call-4",
           "title": "СОЗВОН #4",
-          "date": "27 мар",
+          "date": "24 апр",
           "tasks": [
             { "id": "call-4-present", "title": "Присутствие", "points": 1 }
           ]
@@ -115,7 +117,7 @@
           "type": "call",
           "id": "call-5",
           "title": "СОЗВОН #5",
-          "date": "31 мар",
+          "date": "28 апр",
           "tasks": [
             { "id": "call-5-present", "title": "Присутствие", "points": 1 }
           ]
@@ -137,7 +139,7 @@
           "type": "call",
           "id": "call-6",
           "title": "СОЗВОН #6 — ДЕМО-ДЕНЬ",
-          "date": "3 апр",
+          "date": "30 апр",
           "tasks": [
             { "id": "call-6-present", "title": "Присутствие", "points": 1 },
             { "id": "demo-shown", "title": "Демо показано", "points": 5 }
@@ -163,13 +165,15 @@
     }
   ],
   "checkins": {
-    "sergey": [],
-    "alexandr": [],
-    "irina": [],
-    "victoria": [],
-    "evgeniy": [],
-    "roman": [],
-    "kseniya": [],
-    "margarita": []
+    "alexey": [],
+    "anton1": [],
+    "anton2": [],
+    "olya": [],
+    "vladimir": [],
+    "yulia": [],
+    "margarita": [],
+    "anastasia": [],
+    "dmitry": [],
+    "maxim": []
   }
 }
