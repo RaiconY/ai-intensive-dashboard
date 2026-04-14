@@ -1,0 +1,518 @@
+{
+  "cohort": "Поток #3",
+  "startDate": "2026-03-17",
+  "endDate": "2026-04-03",
+  "students": [
+    {
+      "id": "sergey",
+      "name": "Сергей",
+      "avatar": "Поток 3/Сергей Шаутин.webp"
+    },
+    {
+      "id": "alexandr",
+      "name": "Александр",
+      "avatar": "Поток 3/Aleksandr.webp"
+    },
+    {
+      "id": "irina",
+      "name": "Ирина",
+      "avatar": "Поток 3/Irina.webp"
+    },
+    {
+      "id": "victoria",
+      "name": "Виктория",
+      "avatar": "Поток 3/Виктория.webp"
+    },
+    {
+      "id": "evgeniy",
+      "name": "Евгений",
+      "avatar": "Поток 3/Евгений.webp"
+    },
+    {
+      "id": "roman",
+      "name": "Роман",
+      "avatar": "Поток 3/Роман.webp"
+    },
+    {
+      "id": "kseniya",
+      "name": "Ксения",
+      "avatar": "Поток 3/Ксюша.webp"
+    },
+    {
+      "id": "margarita",
+      "name": "Маргарита",
+      "avatar": "Поток 3/Маргарита.webp"
+    }
+  ],
+  "weeks": [
+    {
+      "week": 1,
+      "title": "НАСТРОЙКА",
+      "sections": [
+        {
+          "type": "call",
+          "id": "call-1",
+          "title": "СОЗВОН #1",
+          "date": "17 мар",
+          "tasks": [
+            {
+              "id": "call-1-present",
+              "title": "Присутствие",
+              "points": 1
+            }
+          ]
+        },
+        {
+          "type": "homework",
+          "after": "call-1",
+          "title": "ДОМАШКА ПОСЛЕ СОЗВОНА #1",
+          "tasks": [
+            {
+              "id": "claude-pro",
+              "title": "Регистрация Claude Pro",
+              "points": 1
+            },
+            {
+              "id": "claude-desktop",
+              "title": "Claude Desktop установлен",
+              "points": 1
+            },
+            {
+              "id": "claude-cli",
+              "title": "Claude Code CLI установлен",
+              "points": 2
+            },
+            {
+              "id": "project-idea",
+              "title": "Проект: идея сформулирована",
+              "points": 1
+            }
+          ]
+        },
+        {
+          "type": "call",
+          "id": "call-2",
+          "title": "СОЗВОН #2",
+          "date": "20 мар",
+          "tasks": [
+            {
+              "id": "call-2-present",
+              "title": "Присутствие",
+              "points": 1
+            }
+          ]
+        },
+        {
+          "type": "homework",
+          "after": "call-2",
+          "title": "ДОМАШКА ПОСЛЕ СОЗВОНА #2",
+          "tasks": [
+            {
+              "id": "terminal-basics",
+              "title": "Терминал: базовые команды",
+              "points": 1
+            },
+            {
+              "id": "claude-md",
+              "title": "CLAUDE.md создан",
+              "points": 2
+            },
+            {
+              "id": "prd-md",
+              "title": "PRD.md / описание продукта",
+              "points": 2
+            },
+            {
+              "id": "folder-structure",
+              "title": "Есть понятная структура папок",
+              "points": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 2,
+      "title": "РАЗРАБОТКА",
+      "sections": [
+        {
+          "type": "call",
+          "id": "call-3",
+          "title": "СОЗВОН #3",
+          "date": "24 мар",
+          "tasks": [
+            {
+              "id": "call-3-present",
+              "title": "Присутствие",
+              "points": 1
+            }
+          ]
+        },
+        {
+          "type": "homework",
+          "after": "call-3",
+          "title": "ДОМАШКА ПОСЛЕ СОЗВОНА #3",
+          "tasks": [
+            {
+              "id": "git-init",
+              "title": "Git инициализирован",
+              "points": 1
+            },
+            {
+              "id": "github-repo",
+              "title": "Проект залит на GitHub",
+              "points": 2
+            },
+            {
+              "id": "remote-commit",
+              "title": "Коммит с телефона или удалённо",
+              "points": 2
+            },
+            {
+              "id": "git-pull",
+              "title": "Git Pull изменений локально",
+              "points": 1
+            },
+            {
+              "id": "codex-cli",
+              "title": "★ Codex CLI установлен",
+              "points": 2
+            }
+          ]
+        },
+        {
+          "type": "call",
+          "id": "call-4",
+          "title": "СОЗВОН #4",
+          "date": "27 мар",
+          "tasks": [
+            {
+              "id": "call-4-present",
+              "title": "Присутствие",
+              "points": 1
+            }
+          ]
+        },
+        {
+          "type": "homework",
+          "after": "call-4",
+          "title": "ДОМАШКА ПОСЛЕ СОЗВОНА #4",
+          "tasks": [
+            {
+              "id": "hook-created",
+              "title": "Хук или статус лайн настроен",
+              "points": 2
+            },
+            {
+              "id": "skill-written",
+              "title": "Skill: написан под свою задачу",
+              "points": 2
+            },
+            {
+              "id": "subagent-context",
+              "title": "Субагент vs прямой: сравнение /context",
+              "points": 1
+            },
+            {
+              "id": "builtin-commands",
+              "title": "Команды /btw, /rename, /resume",
+              "points": 1
+            },
+            {
+              "id": "custom-subagent",
+              "title": "★ Свой субагент создан",
+              "points": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 3,
+      "title": "ФИНИШ",
+      "sections": [
+        {
+          "type": "call",
+          "id": "call-5",
+          "title": "СОЗВОН #5",
+          "date": "31 мар",
+          "tasks": [
+            {
+              "id": "call-5-present",
+              "title": "Присутствие",
+              "points": 1
+            }
+          ]
+        },
+        {
+          "type": "homework",
+          "after": "call-5",
+          "title": "ДОМАШКА ПОСЛЕ СОЗВОНА #5",
+          "tasks": [
+            {
+              "id": "first-deploy",
+              "title": "Первый деплой на домен",
+              "points": 3
+            },
+            {
+              "id": "mvp-working",
+              "title": "MVP функционирует",
+              "points": 5
+            },
+            {
+              "id": "notebook-lm",
+              "title": "★ NotebookLM: попробовать",
+              "points": 1
+            },
+            {
+              "id": "demo-doc",
+              "title": "Документ к демо (5 вопросов)",
+              "points": 2
+            },
+            {
+              "id": "demo-scenario",
+              "title": "Пользовательский сценарий для демо",
+              "points": 2
+            },
+            {
+              "id": "building-in-public",
+              "title": "Building in Public пост",
+              "points": 2
+            }
+          ]
+        },
+        {
+          "type": "call",
+          "id": "call-6",
+          "title": "СОЗВОН #6 — ДЕМО-ДЕНЬ",
+          "date": "3 апр",
+          "tasks": [
+            {
+              "id": "call-6-present",
+              "title": "Присутствие",
+              "points": 1
+            },
+            {
+              "id": "demo-shown",
+              "title": "Демо показано",
+              "points": 5
+            }
+          ]
+        },
+        {
+          "type": "call",
+          "id": "consultation",
+          "title": "1-НА-1 КОНСУЛЬТАЦИЯ",
+          "tasks": [
+            {
+              "id": "consultation-done",
+              "title": "Проведена",
+              "points": 2
+            }
+          ]
+        },
+        {
+          "type": "homework",
+          "title": "ИСПОЛЬЗОВАНИЕ CLAUDE CODE",
+          "tasks": [
+            {
+              "id": "session-limit",
+              "title": "Скриншот. Лимит 5ч сессии — 100%",
+              "points": 2
+            },
+            {
+              "id": "weekly-limit",
+              "title": "Скриншот. Недельный лимит — 100%",
+              "points": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "checkins": {
+    "sergey": [
+      "call-1-present",
+      "claude-pro",
+      "claude-desktop",
+      "claude-cli",
+      "project-idea",
+      "call-2-present",
+      "claude-md",
+      "folder-structure",
+      "call-3-present",
+      "terminal-basics",
+      "prd-md",
+      "call-4-present",
+      "git-init",
+      "remote-commit",
+      "git-pull",
+      "github-repo",
+      "session-limit",
+      "skill-written",
+      "hook-created",
+      "builtin-commands",
+      "subagent-context",
+      "call-5-present",
+      "first-deploy",
+      "mvp-working",
+      "demo-doc",
+      "building-in-public",
+      "demo-scenario",
+      "notebook-lm",
+      "weekly-limit",
+      "call-6-present",
+      "demo-shown"
+    ],
+    "alexandr": [
+      "call-1-present",
+      "claude-pro",
+      "claude-desktop",
+      "call-2-present",
+      "claude-md",
+      "session-limit",
+      "claude-cli",
+      "project-idea",
+      "folder-structure",
+      "call-3-present",
+      "call-4-present",
+      "call-5-present",
+      "call-6-present",
+      "demo-shown",
+      "first-deploy",
+      "mvp-working",
+      "demo-scenario"
+    ],
+    "irina": [
+      "call-1-present",
+      "claude-pro",
+      "claude-desktop",
+      "call-2-present",
+      "call-3-present",
+      "call-4-present",
+      "call-5-present",
+      "call-6-present",
+      "demo-shown",
+      "demo-scenario",
+      "mvp-working",
+      "project-idea"
+    ],
+    "victoria": [
+      "call-1-present",
+      "claude-pro",
+      "claude-desktop",
+      "claude-cli",
+      "project-idea",
+      "call-2-present",
+      "terminal-basics",
+      "claude-md",
+      "folder-structure",
+      "session-limit",
+      "call-3-present",
+      "call-4-present",
+      "hook-created",
+      "skill-written",
+      "subagent-context",
+      "call-5-present",
+      "first-deploy",
+      "notebook-lm",
+      "git-init",
+      "github-repo",
+      "weekly-limit",
+      "demo-doc",
+      "call-6-present",
+      "demo-shown",
+      "mvp-working",
+      "demo-scenario"
+    ],
+    "evgeniy": [
+      "call-1-present",
+      "claude-pro",
+      "claude-desktop",
+      "claude-cli",
+      "project-idea",
+      "call-2-present",
+      "claude-md",
+      "folder-structure",
+      "call-3-present",
+      "call-4-present",
+      "git-init",
+      "github-repo",
+      "call-5-present",
+      "session-limit",
+      "call-6-present",
+      "demo-shown",
+      "demo-scenario",
+      "demo-doc",
+      "mvp-working",
+      "first-deploy"
+    ],
+    "roman": [
+      "call-1-present",
+      "claude-pro",
+      "claude-desktop",
+      "claude-cli",
+      "project-idea",
+      "call-2-present",
+      "terminal-basics",
+      "claude-md",
+      "folder-structure",
+      "call-3-present",
+      "call-4-present",
+      "github-repo",
+      "git-init",
+      "git-pull",
+      "codex-cli",
+      "skill-written",
+      "call-5-present",
+      "first-deploy",
+      "prd-md",
+      "builtin-commands",
+      "hook-created",
+      "session-limit",
+      "call-6-present",
+      "demo-shown",
+      "mvp-working",
+      "demo-doc",
+      "demo-scenario",
+      "custom-subagent"
+    ],
+    "kseniya": [
+      "call-1-present",
+      "claude-pro",
+      "claude-desktop",
+      "project-idea",
+      "call-2-present",
+      "claude-cli",
+      "claude-md",
+      "session-limit",
+      "folder-structure",
+      "call-3-present",
+      "github-repo",
+      "git-init",
+      "remote-commit",
+      "git-pull",
+      "codex-cli",
+      "call-4-present",
+      "call-5-present",
+      "demo-doc",
+      "notebook-lm",
+      "builtin-commands",
+      "skill-written",
+      "call-6-present",
+      "demo-shown",
+      "demo-scenario",
+      "first-deploy",
+      "mvp-working"
+    ],
+    "margarita": [
+      "call-1-present",
+      "project-idea",
+      "call-2-present",
+      "call-3-present",
+      "call-4-present",
+      "codex-cli",
+      "call-5-present"
+    ]
+  }
+}
