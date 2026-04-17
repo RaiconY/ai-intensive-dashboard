@@ -4,8 +4,8 @@
   "endDate": "2026-04-30",
   "students": [
     { "id": "alexey", "name": "Алексей", "avatar": "Поток 4/alexey.webp" },
-    { "id": "anton1", "name": "Антон Р.", "avatar": "Поток 4/anton1.webp" },
-    { "id": "anton2", "name": "Антон К.", "avatar": "Поток 4/anton2.webp" },
+    { "id": "anton_ryazanov", "name": "Антон Р.", "avatar": "Поток 4/anton_ryazanov.webp" },
+    { "id": "anton_kirillov", "name": "Антон К.", "avatar": "Поток 4/anton_kirillov.webp" },
     { "id": "olya", "name": "Оля", "avatar": "Поток 4/olya.webp" },
     { "id": "vladimir", "name": "Владимир", "avatar": "Поток 4/vladimir.webp" },
     { "id": "yulia", "name": "Юля", "avatar": "Поток 4/yulia.webp" },
@@ -166,8 +166,8 @@
   ],
   "checkins": {
     "alexey": [],
-    "anton1": [],
-    "anton2": [],
+    "anton_ryazanov": [],
+    "anton_kirillov": [],
     "olya": [],
     "vladimir": [],
     "yulia": [],
