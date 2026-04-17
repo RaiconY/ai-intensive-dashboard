@@ -850,7 +850,48 @@ header .subtitle {
 @media (max-width: 768px) {
   html {
     overflow-x: clip;
-    max-width: 100vw;
+  }
+
+  .container {
+    padding: 1rem 1rem calc(5rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  .progress-section,
+  .checkins-section {
+    padding: 1rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .progress-track {
+    min-width: 480px;
+  }
+
+  .checkins-table {
+    min-width: 900px;
+  }
+
+  .music-player {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem calc(0.5rem + env(safe-area-inset-bottom, 0px));
+    justify-content: center;
+    background-image: linear-gradient(180deg, rgba(26, 10, 46, 0.95) 0%, rgba(10, 10, 18, 0.98) 100%);
+    border-top: 1px solid var(--neon-cyan);
+    box-shadow: 0 -4px 20px rgba(0, 240, 255, 0.25);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 1000;
+  }
+
+  .music-track-name {
+    flex: 1;
+    max-width: none;
+    min-width: 0;
   }
 }
 
