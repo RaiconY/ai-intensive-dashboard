@@ -8,8 +8,12 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐉</text></svg>">
 </head>
 <body>
-  <div class="mobile-block">
-    <span>Пока что это работает только на компе, ковбой</span>
+  <div class="mobile-notice" id="mobile-notice" hidden>
+    <div class="mobile-notice__card">
+      <p class="mobile-notice__title">// HEADS UP, COWBOY</p>
+      <p class="mobile-notice__text">Страница не адаптирована под мобильные. Открой с компа, чтобы всё отобразилось корректно.</p>
+      <button class="mobile-notice__ok" type="button" id="mobile-notice-ok">OK</button>
+    </div>
   </div>
   <div class="container">
     <header>
@@ -45,5 +49,19 @@
   </div>
 
   <script src="./js/dashboard.js"></script>
+  <script>
+    (function () {
+      if (!window.matchMedia('(max-width: 768px)').matches) return;
+      if (sessionStorage.getItem('mobile-notice-dismissed') === '1') return;
+      var el = document.getElementById('mobile-notice');
+      var btn = document.getElementById('mobile-notice-ok');
+      if (!el || !btn) return;
+      el.hidden = false;
+      btn.addEventListener('click', function () {
+        el.hidden = true;
+        sessionStorage.setItem('mobile-notice-dismissed', '1');
+      });
+    })();
+  </script>
 </body>
 </html>
